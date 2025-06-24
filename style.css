@@ -31,6 +31,7 @@ body {
 
 #about p {
   color: rgb(213, 242, 211);
+  font-size: 20px;
 }
 
 header {
@@ -41,7 +42,7 @@ header {
     rgba(137, 135, 124, 0.155) 100%
   );
   color: rgba(56, 234, 47, 0.621);
-  padding: 8px 0;
+  padding: 20px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -101,6 +102,7 @@ nav {
   display: inline;
   margin-left: 20px;
   margin-bottom: 25px;
+  font-size: 20px;
 }
 
 .nav-links a {
@@ -126,7 +128,7 @@ nav {
 
 @media (max-width: 768px) {
   #about p {
-    font-size: 10px;
+    font-size: 0.9rem;
   }
 }
 
@@ -198,6 +200,8 @@ nav {
 
 .hero-text {
   flex: 1 1 48%;
+  position: relative;
+  left: 8vw;
 }
 
 .hero-image {
@@ -206,8 +210,10 @@ nav {
 }
 
 .hero-image img {
-  max-width: 90%;
-  height: 58vh;
+  position: relative;
+  right: 7vw;
+  max-width: 70%;
+  height: 48vh;
   border-radius: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -222,11 +228,13 @@ nav {
   .hero-text,
   .hero-image {
     flex: 1 1 100%;
+    left: 0;
   }
 
   .hero-image img {
     height: 25vh;
-    width: 28vh;
+    width: 38vw;
+    right:0;
   }
 }
 
