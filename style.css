@@ -31,7 +31,7 @@ body {
 
 #about p {
   color: rgb(213, 242, 211);
-  font-size: 20px;
+  font-size: 1rem;
 }
 
 header {
@@ -42,7 +42,7 @@ header {
     rgba(137, 135, 124, 0.155) 100%
   );
   color: rgba(56, 234, 47, 0.621);
-  padding: 20px 0;
+  padding: 15px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -128,7 +128,7 @@ nav {
 
 @media (max-width: 768px) {
   #about p {
-    font-size: 0.9rem;
+    font-size: 0.6rem;
   }
 }
 
@@ -232,8 +232,8 @@ nav {
   }
 
   .hero-image img {
-    height: 25vh;
-    width: 38vw;
+    height: 28vh;
+    width: 40vw;
     right:0;
   }
 }
