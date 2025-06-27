@@ -233,7 +233,7 @@ nav {
   .hero-image img {
     /* make it a perfect square */
     width: 60vw; /* or whatever size feels right */
-    height: 60vw;
+    height: 80vw;
 
     /* make sure any rectangular photo fills the circle cleanly */
     object-fit: cover;
