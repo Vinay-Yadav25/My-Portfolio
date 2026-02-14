@@ -15,7 +15,7 @@
 
 
       var typed = new Typed("#element", {
-        strings: ["Passionate ", "Developer"],
+        strings: [ "Passionate Developer"],
         loop: true,
         typeSpeed: 100,
         backSpeed: 80,
