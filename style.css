@@ -249,7 +249,39 @@ hr {
   stroke: #0b9827;
   stroke-width: 3.8;
   stroke-linecap: round;
-  transition: stroke-dasharray 1s ease;
+  /* No CSS transition — animation driven by requestAnimationFrame in script.js */
+  transition: stroke 0.3s ease;
+}
+
+/* ===== HOVER STYLES — desktop only ===== */
+@media (hover: hover) {
+  .circle-skill {
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .circle-skill:hover {
+    transform: translateY(-5px) scale(1.06);
+    box-shadow: 0 0 16px rgba(0, 255, 106, 0.35);
+  }
+
+  /* Glow around the SVG chart on hover */
+  .circle-skill:hover .circular-chart {
+    filter: drop-shadow(0 0 7px rgba(0, 255, 106, 0.65));
+  }
+
+  /* Brighter green stroke on hover */
+  .circle-skill:hover .circle {
+    stroke: #00ff6a;
+  }
+}
+
+/* Label brightens on hover */
+.circle-skill:hover p,
+.circle-skill:hover .percentage {
+  fill: #00ff6a;
+  color: #00ff6a;
 }
 
 .percentage {
