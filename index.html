@@ -3,269 +3,192 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- SEO Meta Tags -->
-    <title>Vinay Yadav</title>
+    <title>Vinay Yadav | AI/ML Engineer &amp; Web Developer</title>
     <meta name="description" content="Vinay Yadav — Aspiring AI/ML Engineer and Web Developer. Portfolio showcasing projects in Deep Learning, Computer Vision, FastAPI, Flutter, and more." />
     <meta name="keywords" content="Vinay Yadav, AI Engineer, ML Engineer, Web Developer, Portfolio, Flutter, FastAPI, Deep Learning" />
     <meta name="author" content="Vinay Yadav" />
-    
-    <!-- Open Graph / Social Preview -->
     <meta property="og:title" content="Vinay Yadav | AI/ML Engineer &amp; Web Developer" />
     <meta property="og:description" content="Aspiring AI/ML Engineer building intelligent systems and scalable full-stack applications." />
     <meta property="og:image" content="assets/profile.JPG" />
     <meta property="og:type" content="website" />
-    
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   </head>
   <body>
 
-    <!-- ===== HEADER ===== -->
-    <header>
-      <div class="container">
-        <h1 class="logo">Vinay</h1>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- ===== NAVBAR ===== -->
+    <header id="navbar">
+      <nav class="nav-container">
+        <a href="#home" class="logo">VY<span>.</span></a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <!-- Hamburger last so it always sits top-right on mobile -->
         <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-        <nav id="navbar">
-          <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
+      </nav>
     </header>
 
     <!-- ===== HERO ===== -->
     <section id="home" class="hero">
-      <div class="hero-content">
-        <div class="hero-text">
-          <h2>Hello, I'm <span>Vinay</span></h2>
-          <p>Aspiring AI/ML Engineer and Web Developer</p>
-          <!-- FIX: Removed the rogue <span>A</span> that was breaking the layout -->
-          <p class="typed-line"><span id="element"></span></p>
-          <div><a href="VINAY_RESUME.pdf" class="btn" download>Download CV</a></div>
+      <div class="hero-inner">
 
-          <!-- Social Icons -->
-          <div class="social-icons">
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gvinayyadav25@gmail.com" target="_blank" rel="noopener noreferrer">
+        <!-- LEFT: Text -->
+        <div class="hero-left">
+          <div class="hero-tag">
+            <span class="tag-dot"></span>
+            Available for opportunities
+          </div>
+
+          <h1 class="hero-heading">
+            HI, I'M<br />
+            <span class="hero-name">VINAY</span>
+          </h1>
+
+          <p class="hero-role"><span id="element"></span></p>
+
+          <p class="hero-desc">
+            Building intelligent AI systems &amp; scalable full-stack apps.<br />
+            Final-year B.Tech CSE (AIML) · JNTUH Hyderabad.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn-primary">View Projects <span>→</span></a>
+            <a href="VINAY_RESUME.pdf" class="btn-primary" download>Download CV <span>↓</span></a>
+          </div>
+
+          <div class="social-row">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gvinayyadav25@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Gmail">
               <img src="assets/gmail.png" alt="Gmail" loading="lazy" />
             </a>
-            <a href="https://www.linkedin.com/in/vinay-yadav-25vy/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/vinay-yadav-25vy/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <img src="assets/linkedin.png" alt="LinkedIn" loading="lazy" />
             </a>
-            <a href="https://github.com/Vinay-Yadav25" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Vinay-Yadav25" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <img src="assets/github.png" alt="GitHub" loading="lazy" />
             </a>
           </div>
         </div>
 
-        <div class="hero-image">
-          <img src="assets/profile.JPG" alt="Vinay Yadav" loading="eager" />
+        <!-- RIGHT: Photo -->
+        <div class="hero-right">
+          <div class="photo-wrap">
+            <img src="assets/profile1.png" alt="Vinay Yadav" class="photo-img" loading="eager" />
+            <!-- Floating skill badges -->
+            <div class="badge badge-1">🤖 AI/ML</div>
+            <div class="badge badge-2">⚡ FastAPI</div>
+            <div class="badge badge-3">📱 Flutter</div>
+            <div class="badge badge-4">👁️ CV</div>
+          </div>
         </div>
+
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
       </div>
     </section>
-
-    <hr />
 
     <!-- ===== ABOUT ===== -->
-    <section id="about" class="fly-in">
+    <section id="about" class="section fly-in">
       <div class="container">
-        <h2>About Me</h2>
-        <p>
-          Hi, I'm Vinay, a dedicated B.Tech Graduate in Computer Science and Engineering (AIML) at DRK Institute of Science and Technology, affiliated with JNTUH, Hyderabad.
-        </p>
-        <br />
-        <p>
-          I'm passionate about building intelligent systems and scalable full-stack applications. My core interests lie in Artificial Intelligence, Machine Learning, and modern web &amp; mobile development. I enjoy transforming ideas into practical, real-world solutions through clean architecture and efficient design.
-        </p>
-        <br />
-        <p>
-          One of my key projects is an AI-based Plagiarism Detection System, where I integrated machine learning models and modern web technologies to detect copied and AI-generated content effectively.
-        </p>
-        <br />
-        <p>
-          Currently, I'm developing an AI-powered Workout App using Flutter (Dart) for the frontend and PHP with MySQL for the backend. This application focuses on personalized workout generation, user progress tracking, and intelligent fitness recommendations powered by AI concepts.
-        </p>
-        <br />
-        <p>
-          I have hands-on experience in Deep Learning, Computer Vision, FastAPI, React, API integration, and database management. I am continuously learning, building, and improving — aiming to create impactful AI-driven solutions while growing both technically and personally.
-          <br />Let's connect and create something meaningful together!
-        </p>
+        <div class="section-label">01 / About</div>
+        <h2 class="section-title">Who Am I</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>Hi, I'm <strong>Vinay</strong> — a dedicated B.Tech graduate in Computer Science &amp; Engineering (AIML) at DRK Institute of Science and Technology, affiliated with JNTUH, Hyderabad.</p>
+            <p>I'm passionate about building intelligent systems and scalable full-stack applications. My core interests span Artificial Intelligence, Machine Learning, and modern web &amp; mobile development.</p>
+            <p>I have hands-on experience in Deep Learning, Computer Vision, FastAPI, Flutter, React, and database management — continuously learning and building impactful AI-driven solutions.</p>
+            <p>Let's connect and create something meaningful together!</p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <span class="stat-num">3</span>
+              <span class="stat-label">Projects Built</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">6+</span>
+              <span class="stat-label">Technologies</span>
+            </div>
+            <!-- <div class="stat-card">
+              <span class="stat-num">4th</span>
+              <span class="stat-label">Year B.Tech</span>
+            </div> -->
+            <div class="stat-card">
+              <span class="stat-num">AI</span>
+              <span class="stat-label">Specialisation</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <hr />
-
     <!-- ===== SKILLS ===== -->
-    <section id="skills" class="fly-in">
+    <section id="skills" class="section fly-in">
       <div class="container">
-        <h2>My Skills</h2>
-        <div class="horizontal-skill-wrapper">
+        <div class="section-label">02 / Skills</div>
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-grid">
 
-          <!-- Frontend -->
           <div class="skill-category">
-            <h3>Frontend</h3>
-            <div class="circular-skills">
-              <div class="circle-skill" data-percent="80">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                  <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <text x="18" y="20.5" class="percentage">80%</text>
-                </svg>
-                <p><img src="assets/html.png" alt="HTML" class="skill-icon" loading="lazy" />HTML</p>
-              </div>
-              <div class="circle-skill" data-percent="80">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                  <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <text x="18" y="20.5" class="percentage">80%</text>
-                </svg>
-                <p><img src="assets/css.png" alt="CSS" class="skill-icon" loading="lazy" />CSS</p>
-              </div>
-              <div class="circle-skill" data-percent="55">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                  <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <text x="18" y="20.5" class="percentage">55%</text>
-                </svg>
-                <p><img src="assets/JavaScript-logo.png" alt="JavaScript" class="skill-icon" loading="lazy" />JS</p>
-              </div>
+            <h3><span class="cat-icon">🖥️</span> Frontend</h3>
+            <div class="skill-tags">
+              <span class="skill-tag"><img src="assets/html.png" alt="HTML" class="tag-icon" loading="lazy" />HTML</span>
+              <span class="skill-tag"><img src="assets/css.png" alt="CSS" class="tag-icon" loading="lazy" />CSS</span>
+              <span class="skill-tag"><img src="assets/JavaScript-logo.png" alt="JavaScript" class="tag-icon" loading="lazy" />JavaScript</span>
             </div>
           </div>
 
-          <!-- Programming Languages -->
           <div class="skill-category">
-            <h3>Programming Languages</h3>
-            <div class="circular-skills">
-              <div class="circle-skill" data-percent="75">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                  <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <text x="18" y="20.5" class="percentage">75%</text>
-                </svg>
-                <p><img src="assets/python.png" alt="Python" class="skill-icon" loading="lazy" />Python</p>
-              </div>
-              <div class="circle-skill" data-percent="55">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                  <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <text x="18" y="20.5" class="percentage">55%</text>
-                </svg>
-                <p><img src="assets/java.png" alt="Java" class="skill-icon" loading="lazy" />Java</p>
-              </div>
-              <div class="circle-skill" data-percent="55">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                  <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <text x="18" y="20.5" class="percentage">55%</text>
-                </svg>
-                <p><img src="assets/C.png" alt="C" class="skill-icon" loading="lazy" />C</p>
-              </div>
+            <h3><span class="cat-icon">💻</span> Languages</h3>
+            <div class="skill-tags">
+              <span class="skill-tag"><img src="assets/python.png" alt="Python" class="tag-icon" loading="lazy" />Python</span>
+              <span class="skill-tag"><img src="assets/java.png" alt="Java" class="tag-icon" loading="lazy" />Java</span>
+              <span class="skill-tag"><img src="assets/C.png" alt="C" class="tag-icon" loading="lazy" />C</span>
             </div>
           </div>
 
-          <!-- Backend -->
           <div class="skill-category">
-            <h3>Backend</h3>
-            <div class="circular-skills">
-              <div class="circle-skill" data-percent="65">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                  <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <text x="18" y="20.5" class="percentage">65%</text>
-                </svg>
-                <p><span class="skill-emoji">⚡</span>FastAPI</p>
-              </div>
-              <div class="circle-skill" data-percent="55">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                  <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <text x="18" y="20.5" class="percentage">55%</text>
-                </svg>
-                <p><span class="skill-emoji">🐘</span>PHP</p>
-              </div>
-              <div class="circle-skill" data-percent="60">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                  <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <text x="18" y="20.5" class="percentage">60%</text>
-                </svg>
-                <p><img src="assets/mysql.png" alt="MySQL" class="skill-icon" loading="lazy" />MySQL</p>
-              </div>
+            <h3><span class="cat-icon">⚙️</span> Backend</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">⚡ FastAPI</span>
+              <span class="skill-tag">🐘 PHP</span>
+              <span class="skill-tag"><img src="assets/mysql.png" alt="MySQL" class="tag-icon" loading="lazy" />MySQL</span>
             </div>
           </div>
 
-          <!-- AI / ML -->
           <div class="skill-category">
-            <h3>AI / ML</h3>
-            <div class="circular-skills">
-              <div class="circle-skill" data-percent="65">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                  <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <text x="18" y="20.5" class="percentage">65%</text>
-                </svg>
-                <p><span class="skill-emoji">🧠</span>Deep Learning</p>
-              </div>
-              <div class="circle-skill" data-percent="60">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                  <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <text x="18" y="20.5" class="percentage">60%</text>
-                </svg>
-                <p><span class="skill-emoji">👁️</span>Computer Vision</p>
-              </div>
+            <h3><span class="cat-icon">🤖</span> AI / ML</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">🧠 Deep Learning</span>
+              <span class="skill-tag">👁️ Computer Vision</span>
+              <span class="skill-tag">🎯 YOLOv8</span>
             </div>
           </div>
 
-          <!-- Mobile Dev -->
           <div class="skill-category">
-            <h3>Mobile Dev</h3>
-            <div class="circular-skills">
-              <div class="circle-skill" data-percent="60">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                  <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <text x="18" y="20.5" class="percentage">60%</text>
-                </svg>
-                <p><span class="skill-emoji">📱</span>Flutter/Dart</p>
-              </div>
+            <h3><span class="cat-icon">📱</span> Mobile Dev</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">📱 Flutter</span>
+              <span class="skill-tag">🎯 Dart</span>
             </div>
           </div>
 
-          <!-- Tools -->
           <div class="skill-category">
-            <h3>Tools</h3>
-            <div class="circular-skills">
-              <div class="circle-skill" data-percent="85">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                  <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <text x="18" y="20.5" class="percentage">85%</text>
-                </svg>
-                <p><img src="assets/vscode.png" alt="VS Code" class="skill-icon" loading="lazy" />VS Code</p>
-              </div>
-              <div class="circle-skill" data-percent="65">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                  <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <text x="18" y="20.5" class="percentage">65%</text>
-                </svg>
-                <p><img src="assets/github.png" alt="GitHub" class="skill-icon" loading="lazy" />GitHub</p>
-              </div>
-              <div class="circle-skill" data-percent="75">
-                <svg viewBox="0 0 36 36" class="circular-chart">
-                  <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                  <text x="18" y="20.5" class="percentage">75%</text>
-                </svg>
-                <p><img src="assets/gpt.png" alt="ChatGPT" class="skill-icon" loading="lazy" />ChatGPT</p>
-              </div>
+            <h3><span class="cat-icon">🛠️</span> Tools</h3>
+            <div class="skill-tags">
+              <span class="skill-tag"><img src="assets/vscode.png" alt="VS Code" class="tag-icon" loading="lazy" />VS Code</span>
+              <span class="skill-tag"><img src="assets/github.png" alt="GitHub" class="tag-icon" loading="lazy" />GitHub</span>
+              <span class="skill-tag"><img src="assets/gpt.png" alt="ChatGPT" class="tag-icon" loading="lazy" />ChatGPT</span>
             </div>
           </div>
 
@@ -273,94 +196,127 @@
       </div>
     </section>
 
-    <hr />
-
     <!-- ===== PROJECTS ===== -->
-    <section id="projects" class="fly-in">
+    <section id="projects" class="section fly-in">
       <div class="container">
-        <h2>Projects</h2>
-        <!-- FIX: Changed from flex-column to grid for better layout -->
+        <div class="section-label">03 / Projects</div>
+        <h2 class="section-title">Featured Work</h2>
         <div class="projects-grid">
 
           <div class="project-card">
+            <div class="project-number">01</div>
             <h3>AI Plagiarism Detection</h3>
-            <p>Detects content generated by AI tools using FastAPI and ML models. Identifies copied and AI-generated content with high accuracy.</p>
+            <p>Detects AI-generated and copied content using FastAPI and ML models with high accuracy.</p>
             <div class="project-tags">
               <span class="tag">FastAPI</span>
               <span class="tag">Machine Learning</span>
               <span class="tag">Python</span>
             </div>
-            <a href="https://github.com/Vinay-Yadav25/AI-Plagiarism-Detection-Tool.git" target="_blank" rel="noopener noreferrer" class="btn github-btn">
-              <img src="assets/github.png" alt="GitHub" style="width:16px;vertical-align:middle;margin-right:6px" loading="lazy" />
-              View on GitHub
-            </a>
+            <div class="project-btn-row">
+              <a href="https://github.com/Vinay-Yadav25/AI-Plagiarism-Detection-Tool" target="_blank" rel="noopener noreferrer" class="project-btn">
+                GitHub <span>↗</span>
+              </a>
+              <a href="#" class="project-btn project-btn--demo" title="Live demo coming soon">
+                Live Demo <span>▶</span>
+              </a>
+            </div>
           </div>
 
           <div class="project-card">
+            <div class="project-number">02</div>
             <h3>AI-Workout App</h3>
-            <p>An AI-powered workout app that delivers personalized training plans, tracks user progress, and provides intelligent fitness recommendations using AI-driven insights.</p>
+            <p>Personalized AI workout plans with progress tracking and intelligent fitness recommendations.</p>
             <div class="project-tags">
               <span class="tag">Flutter</span>
               <span class="tag">PHP</span>
               <span class="tag">MySQL</span>
               <span class="tag">AI</span>
             </div>
-            <!-- FIX: Replaced broken placeholder "yourusername" link with actual GitHub profile -->
-            <a href="https://github.com/Vinay-Yadav25" target="_blank" rel="noopener noreferrer" class="btn github-btn">
-              <img src="assets/github.png" alt="GitHub" style="width:16px;vertical-align:middle;margin-right:6px" loading="lazy" />
-              View on GitHub
-            </a>
+            <div class="project-btn-row">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="project-btn">
+                GitHub <span>↗</span>
+              </a>
+              <a href="#" class="project-btn project-btn--demo" title="Live demo coming soon">
+                Live Demo <span>▶</span>
+              </a>
+            </div>
           </div>
 
           <div class="project-card">
-            <h3>AI Helmet Detection for Construction Sites</h3>
-            <p>A real-time helmet detection system using YOLOv8 to identify helmet and no-helmet cases from images, video, or webcam. Provides a Streamlit dashboard with alerts and safety metrics.</p>
+            <div class="project-number">03</div>
+            <h3>AI Helmet Detection</h3>
+            <p>Real-time YOLOv8 safety detection system with Streamlit dashboard, alerts, and metrics.</p>
             <div class="project-tags">
               <span class="tag">YOLOv8</span>
               <span class="tag">Computer Vision</span>
               <span class="tag">Streamlit</span>
-              <span class="tag">Python</span>
             </div>
-            <a href="https://github.com/Vinay-Yadav25/AI-Based-Helmet-Detection" target="_blank" rel="noopener noreferrer" class="btn github-btn">
-              <img src="assets/github.png" alt="GitHub" style="width:16px;vertical-align:middle;margin-right:6px" loading="lazy" />
-              View on GitHub
-            </a>
+            <div class="project-btn-row">
+              <a href="https://github.com/Vinay-Yadav25/AI-Based-Helmet-Detection" target="_blank" rel="noopener noreferrer" class="project-btn">
+                GitHub <span>↗</span>
+              </a>
+              <a href="#" class="project-btn project-btn--demo" title="Live demo coming soon">
+                Live Demo <span>▶</span>
+              </a>
+            </div>
           </div>
 
         </div>
       </div>
     </section>
 
-    <hr />
-
     <!-- ===== CONTACT ===== -->
-    <section id="contact" class="fly-in">
+    <section id="contact" class="section fly-in">
       <div class="container">
-        <h2>Contact Me</h2>
-        <form id="contact-form" action="https://formsubmit.co/gvinayyadav25@gmail.com" method="POST">
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <textarea name="comment" placeholder="Your Message..." rows="5" required></textarea>
-          <button type="submit" class="btn">Send</button>
-        </form>
+        <div class="section-label">04 / Contact</div>
+        <h2 class="section-title">Let's Talk</h2>
+        <div class="contact-wrap">
+          <div class="contact-info">
+            <p>Have a project in mind or want to collaborate? I'd love to hear from you. Drop a message and I'll get back as soon as possible.</p>
+            <div class="contact-links">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gvinayyadav25@gmail.com" target="_blank" rel="noopener noreferrer">
+                <img src="assets/gmail.png" alt="Gmail" loading="lazy" /> gvinayyadav25@gmail.com
+              </a>
+              <a href="https://www.linkedin.com/in/vinay-yadav-25vy/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/linkedin.png" alt="LinkedIn" loading="lazy" /> linkedin.com/in/vinay-yadav-25vy
+              </a>
+              <a href="https://github.com/Vinay-Yadav25" target="_blank" rel="noopener noreferrer">
+                <img src="assets/github.png" alt="GitHub" loading="lazy" /> github.com/Vinay-Yadav25
+              </a>
+            </div>
+          </div>
+          <form id="contact-form" action="https://formsubmit.co/gvinayyadav25@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <textarea name="comment" placeholder="Your Message..." rows="5" required></textarea>
+            <button type="submit" class="btn-primary">Send Message <span>→</span></button>
+          </form>
+        </div>
 
-        <!-- Popup Modal -->
         <div id="popup" class="popup">
           <div class="popup-content">
             <span class="close-btn">&times;</span>
-            <h2>&#x2705; Thank You!</h2>
+            <h2>✅ Message Sent!</h2>
             <p>Will get back as soon as possible.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <hr />
-
+    <!-- ===== FOOTER ===== -->
     <footer>
-      <div class="container">
+      <div class="container footer-inner">
+        <span class="logo">VY<span>.</span></span>
         <p>&copy; 2025 Vinay Yadav. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <a href="#skills">Skills</a>
+        </div>
+
       </div>
     </footer>
 
