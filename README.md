@@ -6,13 +6,13 @@
 [![GitHub](https://img.shields.io/badge/GitHub-Vinay--Yadav25-181717?style=for-the-badge&logo=github)](https://github.com/Vinay-Yadav25)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-vinay--yadav--25vy-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/vinay-yadav-25vy/)
 
----
+<!-- ---
 
 ## 📸 Preview
 
 <!-- ![Portfolio Preview](assets/profile.JPG) -->
 
----
+--- -->
 
 ## ✨ Features
 
