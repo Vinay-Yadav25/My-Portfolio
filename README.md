@@ -10,7 +10,7 @@
 
 ## 📸 Preview
 
-![Portfolio Preview](assets/profile.JPG)
+<!-- ![Portfolio Preview](assets/profile.JPG) -->
 
 ---
 
