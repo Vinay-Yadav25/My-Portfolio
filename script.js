@@ -1,4 +1,142 @@
+// ================================================================
+//  LOADER — runs immediately, before DOMContentLoaded
+// ================================================================
+(function () {
+  const loader = document.getElementById("loader");
+  if (!loader) return;
+
+  // Lock scroll while loader is visible
+  document.body.style.overflow = "hidden";
+
+  function dismiss() {
+    loader.classList.add("hidden");
+    document.body.style.overflow = "";
+    // Remove from DOM after fade-out so it never interferes
+    setTimeout(() => loader.remove(), 700);
+  }
+
+  // Auto-dismiss: letter animations finish ~0.7s, bar fills at 2.2s → dismiss at 2.5s
+  const autoTimer = setTimeout(dismiss, 2500);
+
+  // Click anywhere to skip
+  loader.addEventListener("click", () => {
+    clearTimeout(autoTimer);
+    dismiss();
+  });
+})();
+
 document.addEventListener("DOMContentLoaded", function () {
+
+  // ================================================================
+  //  PORTFOLIO DATA — load from localStorage, fall back to defaults
+  // ================================================================
+
+  const DATA_KEY = "vy_portfolio";
+
+  const DEFAULTS = {
+    projects: [
+      { id:"p1", num:"01", title:"AI Plagiarism Detection",
+        desc:"Detects AI-generated and copied content using FastAPI and ML models with high accuracy.",
+        tags:["FastAPI","Machine Learning","Python"],
+        github:"https://github.com/Vinay-Yadav25/AI-Plagiarism-Detection-Tool", demo:"" },
+      { id:"p2", num:"02", title:"AI-Workout App",
+        desc:"Personalized AI workout plans with progress tracking and intelligent fitness recommendations.",
+        tags:["Flutter","PHP","MySQL","AI"],
+        github:"https://github.com/Vinay-Yadav25", demo:"" },
+      { id:"p3", num:"03", title:"AI Helmet Detection",
+        desc:"Real-time YOLOv8 safety detection system with Streamlit dashboard, alerts, and metrics.",
+        tags:["YOLOv8","Computer Vision","Streamlit"],
+        github:"https://github.com/Vinay-Yadav25/AI-Based-Helmet-Detection", demo:"" }
+    ],
+    skills: [
+      { id:"s1", icon:"🖥️", name:"Frontend",   tags:["HTML","CSS","JavaScript"] },
+      { id:"s2", icon:"💻", name:"Languages",  tags:["Python","Java","C"] },
+      { id:"s3", icon:"⚙️", name:"Backend",    tags:["⚡ FastAPI","🐘 PHP","MySQL"] },
+      { id:"s4", icon:"🤖", name:"AI / ML",    tags:["🧠 Deep Learning","👁️ Computer Vision","🎯 YOLOv8"] },
+      { id:"s5", icon:"📱", name:"Mobile Dev", tags:["📱 Flutter","🎯 Dart"] },
+      { id:"s6", icon:"🛠️", name:"Tools",      tags:["VS Code","GitHub","ChatGPT"] }
+    ]
+  };
+
+  function getPortfolioData() {
+    try {
+      const raw = localStorage.getItem(DATA_KEY);
+      return raw ? JSON.parse(raw) : DEFAULTS;
+    } catch(e) { return DEFAULTS; }
+  }
+
+  // Icon map — skill names that have local asset images
+  const ICON_MAP = {
+    "HTML":       "assets/html.png",
+    "CSS":        "assets/css.png",
+    "JavaScript": "assets/JavaScript-logo.png",
+    "Python":     "assets/python.png",
+    "Java":       "assets/java.png",
+    "C":          "assets/C.png",
+    "MySQL":      "assets/mysql.png",
+    "VS Code":    "assets/vscode.png",
+    "GitHub":     "assets/github.png",
+    "ChatGPT":    "assets/gpt.png",
+  };
+
+  function skillTagHTML(tag) {
+    // Tags starting with an emoji already contain their own icon
+    const hasEmoji = /^\p{Emoji}/u.test(tag.trim());
+    if (hasEmoji) return `<span class="skill-tag">${tag}</span>`;
+    const imgSrc = ICON_MAP[tag];
+    if (imgSrc) return `<span class="skill-tag"><img src="${imgSrc}" alt="${tag}" class="tag-icon" loading="lazy" />${tag}</span>`;
+    return `<span class="skill-tag">${tag}</span>`;
+  }
+
+  function renderPortfolioProjects() {
+    const container = document.getElementById("projects-container");
+    if (!container) return;
+    const { projects } = getPortfolioData();
+    container.innerHTML = projects.map(p => `
+      <div class="project-card">
+        <div class="project-number">${p.num || ""}</div>
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <div class="project-tags">
+          ${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}
+        </div>
+        <div class="project-btn-row">
+          ${p.github
+            ? `<a href="${p.github}" target="_blank" rel="noopener noreferrer" class="project-btn">GitHub <span>↗</span></a>`
+            : ""}
+          ${p.demo
+            ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--demo">Live Demo <span>▶</span></a>`
+            : `<a href="#" class="project-btn project-btn--demo" title="Live demo coming soon">Live Demo <span>▶</span></a>`}
+        </div>
+      </div>
+    `).join("");
+  }
+
+  function renderPortfolioSkills() {
+    const container = document.getElementById("skills-container");
+    if (!container) return;
+    const { skills } = getPortfolioData();
+    container.innerHTML = skills.map(s => `
+      <div class="skill-category">
+        <h3><span class="cat-icon">${s.icon}</span> ${s.name}</h3>
+        <div class="skill-tags">
+          ${s.tags.map(t => skillTagHTML(t)).join("")}
+        </div>
+      </div>
+    `).join("");
+
+    // Re-run stagger animation on newly rendered tags
+    const tags = container.querySelectorAll(".skill-tag");
+    tags.forEach((tag, i) => {
+      tag.style.opacity    = "0";
+      tag.style.transform  = "translateY(12px)";
+      tag.style.transition = `opacity 0.4s ease ${i * 40}ms, transform 0.4s ease ${i * 40}ms`;
+    });
+  }
+
+  // Render immediately on load
+  renderPortfolioProjects();
+  renderPortfolioSkills();
 
   // ================================================================
   //  BACKGROUND — Reactive Dot Grid + Data Pulse Streams

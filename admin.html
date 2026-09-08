@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Vinay Portfolio CMS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+</head>
+<body>
+
+  <!-- ===== LOGIN SCREEN ===== -->
+  <div id="login-screen">
+    <div class="login-box">
+      <div class="login-logo">VY<span>.</span></div>
+      <h1>Portfolio CMS</h1>
+      <p>Admin access only</p>
+      <div class="login-field">
+        <input type="password" id="pwd-input" placeholder="Enter password" />
+        <button id="login-btn">Login →</button>
+      </div>
+      <p class="login-err" id="login-err"></p>
+    </div>
+  </div>
+
+  <!-- ===== DASHBOARD ===== -->
+  <div id="dashboard" class="hidden">
+
+    <!-- Topbar -->
+    <header class="admin-header">
+      <div class="admin-logo">VY<span>.</span> CMS</div>
+      <div class="admin-actions">
+        <a href="index.html" target="_blank" class="btn-preview">Preview Portfolio ↗</a>
+        <button id="logout-btn" class="btn-logout">Logout</button>
+      </div>
+    </header>
+
+    <!-- Tabs -->
+    <div class="tab-bar">
+      <button class="tab active" data-tab="projects">📁 Projects</button>
+      <button class="tab" data-tab="skills">🛠️ Skills</button>
+      <button class="tab" data-tab="settings">⚙️ Settings</button>
+    </div>
+
+    <main class="admin-main">
+
+      <!-- ===== PROJECTS TAB ===== -->
+      <section id="tab-projects" class="tab-content active">
+        <div class="tab-header">
+          <h2>Projects</h2>
+          <button class="btn-add" id="add-project-btn">+ Add Project</button>
+        </div>
+
+        <!-- Project Form (hidden by default) -->
+        <div class="form-card hidden" id="project-form-card">
+          <h3 id="project-form-title">Add Project</h3>
+          <input type="hidden" id="proj-id" />
+          <div class="form-row">
+            <div class="form-group">
+              <label>Project Number</label>
+              <input type="text" id="proj-num" placeholder="e.g. 04" maxlength="2" />
+            </div>
+            <div class="form-group" style="flex:3">
+              <label>Title *</label>
+              <input type="text" id="proj-title" placeholder="Project name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Description *</label>
+            <textarea id="proj-desc" rows="3" placeholder="Brief description of the project..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Tech Tags <span class="hint">(comma separated)</span></label>
+            <input type="text" id="proj-tags" placeholder="e.g. Python, FastAPI, ML" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>GitHub URL</label>
+              <input type="url" id="proj-github" placeholder="https://github.com/..." />
+            </div>
+            <div class="form-group">
+              <label>Live Demo URL</label>
+              <input type="url" id="proj-demo" placeholder="https://your-demo.com" />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn-save" id="save-project-btn">Save Project</button>
+            <button class="btn-cancel" id="cancel-project-btn">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Projects List -->
+        <div id="projects-list" class="card-list"></div>
+      </section>
+
+      <!-- ===== SKILLS TAB ===== -->
+      <section id="tab-skills" class="tab-content hidden">
+        <div class="tab-header">
+          <h2>Skills</h2>
+          <button class="btn-add" id="add-skill-btn">+ Add Category</button>
+        </div>
+
+        <!-- Skill Form -->
+        <div class="form-card hidden" id="skill-form-card">
+          <h3 id="skill-form-title">Add Skill Category</h3>
+          <input type="hidden" id="skill-id" />
+          <div class="form-row">
+            <div class="form-group" style="flex:1">
+              <label>Icon (emoji)</label>
+              <input type="text" id="skill-icon" placeholder="🖥️" maxlength="4" />
+            </div>
+            <div class="form-group" style="flex:3">
+              <label>Category Name *</label>
+              <input type="text" id="skill-name" placeholder="e.g. Frontend" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Skills <span class="hint">(comma separated — use emoji prefix for no-icon skills e.g. ⚡ FastAPI)</span></label>
+            <input type="text" id="skill-tags" placeholder="e.g. HTML, CSS, JavaScript" />
+          </div>
+          <div class="form-actions">
+            <button class="btn-save" id="save-skill-btn">Save Category</button>
+            <button class="btn-cancel" id="cancel-skill-btn">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Skills List -->
+        <div id="skills-list" class="card-list"></div>
+      </section>
+
+      <!-- ===== SETTINGS TAB ===== -->
+      <section id="tab-settings" class="tab-content hidden">
+        <div class="tab-header"><h2>Settings</h2></div>
+
+        <div class="settings-grid">
+
+          <!-- Change Password -->
+          <div class="form-card">
+            <h3>🔐 Change Password</h3>
+            <div class="form-group">
+              <label>Current Password</label>
+              <input type="password" id="curr-pwd" placeholder="Current password" />
+            </div>
+            <div class="form-group">
+              <label>New Password</label>
+              <input type="password" id="new-pwd" placeholder="New password" />
+            </div>
+            <div class="form-group">
+              <label>Confirm New Password</label>
+              <input type="password" id="confirm-pwd" placeholder="Confirm new password" />
+            </div>
+            <button class="btn-save" id="change-pwd-btn">Update Password</button>
+            <p class="form-msg" id="pwd-msg"></p>
+          </div>
+
+          <!-- JSONBin Sync -->
+          <div class="form-card">
+            <h3>☁️ Cloud Sync (Optional)</h3>
+            <p class="hint-text">Sync your portfolio data across devices using <strong>JSONBin.io</strong> (free).</p>
+            <ol class="setup-steps">
+              <li>Go to <a href="https://jsonbin.io" target="_blank">jsonbin.io</a> and create a free account</li>
+              <li>Create a new Bin with <code>{}</code> as content</li>
+              <li>Copy the <strong>Bin ID</strong> and your <strong>API Key</strong></li>
+              <li>Paste them below and click Save</li>
+            </ol>
+            <div class="form-group">
+              <label>JSONBin API Key</label>
+              <input type="text" id="jb-key" placeholder="$2b$10$..." />
+            </div>
+            <div class="form-group">
+              <label>Bin ID</label>
+              <input type="text" id="jb-bin" placeholder="64a1b2c3d4e5f6..." />
+            </div>
+            <div class="form-actions">
+              <button class="btn-save" id="save-jb-btn">Save & Sync Now</button>
+              <button class="btn-cancel" id="clear-jb-btn">Clear</button>
+            </div>
+            <p class="form-msg" id="jb-msg"></p>
+          </div>
+
+          <!-- Danger Zone -->
+          <div class="form-card danger-card">
+            <h3>⚠️ Danger Zone</h3>
+            <p class="hint-text">Reset all projects and skills back to the portfolio defaults.</p>
+            <button class="btn-danger" id="reset-btn">Reset to Defaults</button>
+            <p class="form-msg" id="reset-msg"></p>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,3 +1,121 @@
+/* ================================================================
+   LOADER
+   ================================================================ */
+
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #04090f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ── Letter drop-in ─────────────────────────────────── */
+.loader-letters {
+  display: flex;
+  gap: 6px;
+}
+
+.ll {
+  font-family: var(--font-head, 'Space Grotesk', sans-serif);
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -2px;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(-60px) scale(1.2);
+  animation: letterDrop 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--i) * 0.1s + 0.2s);
+  display: inline-block;
+  position: relative;
+}
+
+/* Last letter Y gets the accent colour + glow */
+.ll:last-child {
+  color: var(--accent, #00e87a);
+  text-shadow: 0 0 40px rgba(0, 232, 122, 0.6);
+}
+
+@keyframes letterDrop {
+  0%   { opacity: 0; transform: translateY(-60px) scale(1.2); }
+  60%  { opacity: 1; transform: translateY(6px)  scale(0.97); }
+  80%  { transform: translateY(-3px) scale(1.01); }
+  100% { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+/* ── Subtitle ────────────────────────────────────────── */
+.loader-sub {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(0, 232, 122, 0.7);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeUp 0.5s ease forwards;
+  animation-delay: 0.85s;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Progress bar ───────────────────────────────────── */
+.loader-bar-wrap {
+  width: 180px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeUp 0.4s ease forwards;
+  animation-delay: 1s;
+}
+
+.loader-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent, #00e87a), #00c8ff);
+  border-radius: 999px;
+  animation: barFill 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 1s;
+  box-shadow: 0 0 8px rgba(0, 232, 122, 0.6);
+}
+
+@keyframes barFill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* ── Skip hint ──────────────────────────────────────── */
+.loader-skip {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: fadeUp 0.4s ease forwards;
+  animation-delay: 1.4s;
+  cursor: pointer;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
 /* ===== RESET ===== */

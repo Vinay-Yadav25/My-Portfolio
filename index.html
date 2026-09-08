@@ -18,6 +18,24 @@
   </head>
   <body>
 
+    <!-- ===== LOADER ===== -->
+    <div id="loader">
+      <div class="loader-inner">
+        <div class="loader-letters">
+          <span class="ll" style="--i:0">V</span>
+          <span class="ll" style="--i:1">I</span>
+          <span class="ll" style="--i:2">N</span>
+          <span class="ll" style="--i:3">A</span>
+          <span class="ll" style="--i:4">Y</span>
+        </div>
+        <div class="loader-sub">AI/ML Engineer &amp; Web Developer</div>
+        <div class="loader-bar-wrap">
+          <div class="loader-bar"></div>
+        </div>
+        <div class="loader-skip">click anywhere to skip</div>
+      </div>
+    </div>
+
     <canvas id="bg-canvas"></canvas>
 
     <!-- ===== NAVBAR ===== -->
@@ -56,12 +74,12 @@
 
           <p class="hero-desc">
             Building intelligent AI systems &amp; scalable full-stack apps.<br />
-            B.Tech CSE (AIML) Graduate .
+            Final-year B.Tech CSE (AIML) · JNTUH Hyderabad.
           </p>
 
           <div class="hero-cta">
             <a href="#projects" class="btn-primary">View Projects <span>→</span></a>
-            <a href="VINAY_RESUME.pdf" class="btn-primary" download>Download Resume <span>↓</span></a>
+            <a href="Vinay-Resume.pdf" class="btn-outline" download>Download CV</a>
           </div>
 
           <div class="social-row">
@@ -112,7 +130,7 @@
           </div>
           <div class="about-stats">
             <div class="stat-card">
-              <span class="stat-num">3</span>
+              <span class="stat-num">3+</span>
               <span class="stat-label">Projects Built</span>
             </div>
             <div class="stat-card">
@@ -137,62 +155,7 @@
       <div class="container">
         <div class="section-label">02 / Skills</div>
         <h2 class="section-title">My Skills</h2>
-        <div class="skills-grid">
-
-          <div class="skill-category">
-            <h3><span class="cat-icon">🖥️</span> Frontend</h3>
-            <div class="skill-tags">
-              <span class="skill-tag"><img src="assets/html.png" alt="HTML" class="tag-icon" loading="lazy" />HTML</span>
-              <span class="skill-tag"><img src="assets/css.png" alt="CSS" class="tag-icon" loading="lazy" />CSS</span>
-              <span class="skill-tag"><img src="assets/JavaScript-logo.png" alt="JavaScript" class="tag-icon" loading="lazy" />JavaScript</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3><span class="cat-icon">💻</span> Languages</h3>
-            <div class="skill-tags">
-              <span class="skill-tag"><img src="assets/python.png" alt="Python" class="tag-icon" loading="lazy" />Python</span>
-              <span class="skill-tag"><img src="assets/java.png" alt="Java" class="tag-icon" loading="lazy" />Java</span>
-              <span class="skill-tag"><img src="assets/C.png" alt="C" class="tag-icon" loading="lazy" />C</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3><span class="cat-icon">⚙️</span> Backend</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">⚡ FastAPI</span>
-              <span class="skill-tag">🐘 PHP</span>
-              <span class="skill-tag"><img src="assets/mysql.png" alt="MySQL" class="tag-icon" loading="lazy" />MySQL</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3><span class="cat-icon">🤖</span> AI / ML</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">🧠 Deep Learning</span>
-              <span class="skill-tag">👁️ Computer Vision</span>
-              <span class="skill-tag">🎯 YOLOv8</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3><span class="cat-icon">📱</span> Mobile Dev</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">📱 Flutter</span>
-              <span class="skill-tag">🎯 Dart</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3><span class="cat-icon">🛠️</span> Tools</h3>
-            <div class="skill-tags">
-              <span class="skill-tag"><img src="assets/vscode.png" alt="VS Code" class="tag-icon" loading="lazy" />VS Code</span>
-              <span class="skill-tag"><img src="assets/github.png" alt="GitHub" class="tag-icon" loading="lazy" />GitHub</span>
-              <span class="skill-tag"><img src="assets/gpt.png" alt="ChatGPT" class="tag-icon" loading="lazy" />ChatGPT</span>
-            </div>
-          </div>
-
-        </div>
+        <div class="skills-grid" id="skills-container"></div>
       </div>
     </section>
 
@@ -201,69 +164,7 @@
       <div class="container">
         <div class="section-label">03 / Projects</div>
         <h2 class="section-title">Featured Work</h2>
-        <div class="projects-grid">
-
-        
-          <div class="project-card">
-            <div class="project-number">01</div>
-            <h3>AI Helmet Detection</h3>
-            <p>Real-time YOLOv8 safety detection system with Streamlit dashboard, alerts, and metrics.</p>
-            <div class="project-tags">
-              <span class="tag">YOLOv8</span>
-              <span class="tag">Computer Vision</span>
-              <span class="tag">Streamlit</span>
-            </div>
-            <div class="project-btn-row">
-              <a href="https://github.com/Vinay-Yadav25/AI-Based-Helmet-Detection" target="_blank" rel="noopener noreferrer" class="project-btn">
-                GitHub <span>↗</span>
-              </a>
-              <a href="https://huggingface.co/spaces/Vinay-yadav-25/HelmetDetection-for-ConstructionSites" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--demo" title="Live demo coming soon">
-                Live Demo <span>▶</span>
-              </a>
-            </div>
-          </div>
-          
-
-           <div class="project-card">
-            <div class="project-number">02</div>
-            <h3>AI-Workout App</h3>
-            <p>Personalized AI workout plans with progress tracking and intelligent fitness recommendations.</p>
-            <div class="project-tags">
-              <span class="tag">Flutter</span>
-              <span class="tag">PHP</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">AI</span>
-            </div>
-            <div class="project-btn-row">
-              <a href="https://github.com/Vinay-Yadav25/Personalized-AI-Workout-App" target="_blank" rel="noopener noreferrer" class="project-btn">
-                GitHub <span>↗</span>
-              </a>
-              <!-- <a href="https://huggingface.co/spaces/Vinay-yadav-25/HelmetDetection-for-ConstructionSites" target="_blank"  rel="noopener noreferrer" class="project-btn project-btn--demo" title="Live demo coming soon">
-                Live Demo <span>▶</span>
-              </a> -->
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-number">03</div>
-            <h3>AI Plagiarism Detection</h3>
-            <p>Detects AI-generated and copied content using FastAPI and ML models with high accuracy.</p>
-            <div class="project-tags">
-              <span class="tag">FastAPI</span>
-              <span class="tag">Machine Learning</span>
-              <span class="tag">Python</span>
-            </div>
-            <div class="project-btn-row">
-              <a href="https://github.com/Vinay-Yadav25/AI-Plagiarism-Detection-Tool" target="_blank" rel="noopener noreferrer" class="project-btn">
-                GitHub <span>↗</span>
-              </a>
-              <a href="https://ai-text-detection-tool.onrender.com/" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--demo" title="Live demo coming soon">
-                Live Demo <span>▶</span>
-              </a>
-            </div>
-          </div>
-
-        </div>
+        <div class="projects-grid" id="projects-container"></div>
       </div>
     </section>
 
@@ -313,12 +214,9 @@
         <p>&copy; 2025 Vinay Yadav. All rights reserved.</p>
         <div class="footer-links">
           <a href="#home">Home</a>
-          <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
-          <a href="#skills">Skills</a>
         </div>
-
       </div>
     </footer>
 
