@@ -49,12 +49,12 @@ document.addEventListener("DOMContentLoaded", function () {
         github:"https://github.com/Vinay-Yadav25/AI-Based-Helmet-Detection", demo:"" }
     ],
     skills: [
-      { id:"s1", icon:"🖥️", name:"Frontend",   tags:["HTML","CSS","JavaScript"] },
-      { id:"s2", icon:"💻", name:"Languages",  tags:["Python","Java","C"] },
-      { id:"s3", icon:"⚙️", name:"Backend",    tags:["⚡ FastAPI","🐘 PHP","MySQL"] },
-      { id:"s4", icon:"🤖", name:"AI / ML",    tags:["🧠 Deep Learning","👁️ Computer Vision","🎯 YOLOv8"] },
-      { id:"s5", icon:"📱", name:"Mobile Dev", tags:["📱 Flutter","🎯 Dart"] },
-      { id:"s6", icon:"🛠️", name:"Tools",      tags:["VS Code","GitHub","ChatGPT"] }
+      { id:"s1", icon:"🖥️", name:"Frontend", tags:["HTML","CSS","JavaScript"], logos:{"HTML":"assets/html.png","CSS":"assets/css.png","JavaScript":"assets/JavaScript-logo.png"} },
+      { id:"s2", icon:"💻", name:"Languages", tags:["Python","Java","C"], logos:{"Python":"assets/python.png","Java":"assets/java.png","C":"assets/C.png"} },
+      { id:"s3", icon:"⚙️", name:"Backend", tags:["⚡ FastAPI","🐘 PHP","MySQL"], logos:{"MySQL":"assets/mysql.png"} },
+      { id:"s4", icon:"🤖", name:"AI / ML", tags:["🧠 Deep Learning","👁️ Computer Vision","🎯 YOLOv8"], logos:{} },
+      { id:"s5", icon:"📱", name:"Mobile Dev", tags:["📱 Flutter","🎯 Dart"], logos:{} },
+      { id:"s6", icon:"🛠️", name:"Tools", tags:["VS Code","GitHub","ChatGPT"], logos:{"VS Code":"assets/vscode.png","GitHub":"assets/github.png","ChatGPT":"assets/gpt.png"} }
     ]
   };
 
@@ -65,7 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
     } catch(e) { return DEFAULTS; }
   }
 
-  // Icon map — skill names that have local asset images
+  // Skill logos are stored with each skill category.
+  // The old map remains as a backward-compatible fallback.
   const ICON_MAP = {
     "HTML":       "assets/html.png",
     "CSS":        "assets/css.png",
@@ -79,11 +80,12 @@ document.addEventListener("DOMContentLoaded", function () {
     "ChatGPT":    "assets/gpt.png",
   };
 
-  function skillTagHTML(tag) {
-    // Tags starting with an emoji already contain their own icon
+  function skillTagHTML(tag, skill) {
     const hasEmoji = /^\p{Emoji}/u.test(tag.trim());
     if (hasEmoji) return `<span class="skill-tag">${tag}</span>`;
-    const imgSrc = ICON_MAP[tag];
+
+    // Prefer the logo selected in Admin CMS; fall back to the old map.
+    const imgSrc = (skill && skill.logos && skill.logos[tag]) || ICON_MAP[tag];
     if (imgSrc) return `<span class="skill-tag"><img src="${imgSrc}" alt="${tag}" class="tag-icon" loading="lazy" />${tag}</span>`;
     return `<span class="skill-tag">${tag}</span>`;
   }
@@ -120,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="skill-category">
         <h3><span class="cat-icon">${s.icon}</span> ${s.name}</h3>
         <div class="skill-tags">
-          ${s.tags.map(t => skillTagHTML(t)).join("")}
+          ${s.tags.map(t => skillTagHTML(t, s)).join("")}
         </div>
       </div>
     `).join("");
