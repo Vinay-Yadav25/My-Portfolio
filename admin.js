@@ -354,11 +354,15 @@ function clearSkillForm() {
 // ================================================================
 const RESUME_SETTINGS_KEY = "vy_resume_settings";
 
+// Permanent GitHub repository for resume updates
+const RESUME_OWNER = "Vinay-Yadav25";
+const RESUME_REPO = "My-Portfolio";
+
 function loadResumeSettings() {
   try {
     const saved = JSON.parse(localStorage.getItem(RESUME_SETTINGS_KEY) || "{}");
-    if (saved.owner) document.getElementById("resume-owner").value = saved.owner;
-    if (saved.repo) document.getElementById("resume-repo").value = saved.repo;
+    document.getElementById("resume-owner").value = RESUME_OWNER;
+    document.getElementById("resume-repo").value = RESUME_REPO;
     if (saved.branch) document.getElementById("resume-branch").value = saved.branch;
     if (saved.path) document.getElementById("resume-path").value = saved.path;
   } catch (_) {}
@@ -366,8 +370,8 @@ function loadResumeSettings() {
 
 function saveResumeSettings() {
   localStorage.setItem(RESUME_SETTINGS_KEY, JSON.stringify({
-    owner: document.getElementById("resume-owner").value.trim(),
-    repo: document.getElementById("resume-repo").value.trim(),
+    owner: RESUME_OWNER,
+    repo: RESUME_REPO,
     branch: document.getElementById("resume-branch").value.trim() || "main",
     path: document.getElementById("resume-path").value.trim() || "Vinay-Resume.pdf"
   }));
@@ -375,8 +379,8 @@ function saveResumeSettings() {
 
 async function updateResumeOnGitHub() {
   const token = document.getElementById("resume-token").value.trim();
-  const owner = document.getElementById("resume-owner").value.trim();
-  const repo = document.getElementById("resume-repo").value.trim();
+  const owner = RESUME_OWNER;
+  const repo = RESUME_REPO;
   const branch = document.getElementById("resume-branch").value.trim() || "main";
   const path = document.getElementById("resume-path").value.trim() || "Vinay-Resume.pdf";
   const fileInput = document.getElementById("resume-file");
