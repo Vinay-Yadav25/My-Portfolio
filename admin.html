@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="admin.css" />
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-
 </head>
 <body>
 
@@ -42,6 +41,7 @@
       <button class="tab active" data-tab="projects">📁 Projects</button>
       <button class="tab" data-tab="skills">🛠️ Skills</button>
       <button class="tab" data-tab="settings">⚙️ Settings</button>
+      <button class="tab" data-tab="resume">📄 Resume</button>
     </div>
 
     <main class="admin-main">
@@ -130,6 +130,70 @@
         <div id="skills-list" class="card-list"></div>
       </section>
 
+      <!-- ===== RESUME TAB ===== -->
+      <section id="tab-resume" class="tab-content hidden">
+        <div class="tab-header">
+          <h2>Resume</h2>
+        </div>
+
+        <div class="settings-grid">
+          <div class="form-card resume-card">
+            <h3>📄 Update Resume</h3>
+            <p class="hint-text">Upload a new PDF and it will replace your current <strong>Vinay-Resume.pdf</strong> in the GitHub repository.</p>
+
+            <div class="form-group">
+              <label>GitHub Personal Access Token</label>
+              <input type="password" id="resume-token" placeholder="github_pat_..." autocomplete="off" />
+              <small class="hint-text">Used only for this upload. It is not saved in localStorage.</small>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Repository Owner</label>
+                <input type="text" id="resume-owner" placeholder="Vinay-Yadav25" />
+              </div>
+              <div class="form-group">
+                <label>Repository Name</label>
+                <input type="text" id="resume-repo" placeholder="your-portfolio-repo" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Branch</label>
+                <input type="text" id="resume-branch" value="main" />
+              </div>
+              <div class="form-group">
+                <label>Resume Path</label>
+                <input type="text" id="resume-path" value="Vinay-Resume.pdf" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Select New Resume <span class="hint">(PDF only)</span></label>
+              <input type="file" id="resume-file" accept="application/pdf,.pdf" />
+            </div>
+
+            <div class="form-actions">
+              <button class="btn-save" id="update-resume-btn">Replace Resume</button>
+            </div>
+            <p class="form-msg" id="resume-msg"></p>
+          </div>
+
+          <div class="form-card">
+            <h3>ℹ️ How it works</h3>
+            <ol class="setup-steps">
+              <li>Select your latest resume PDF.</li>
+              <li>Enter a GitHub token with repository <strong>Contents: Read and write</strong> permission.</li>
+              <li>Click <strong>Replace Resume</strong>.</li>
+              <li>The existing file at the same path is overwritten with the new PDF.</li>
+              <li>GitHub Pages will publish the updated resume after the site rebuilds.</li>
+            </ol>
+            <p class="hint-text"><strong>Important:</strong> Keep the same file path (<code>Vinay-Resume.pdf</code>) so your portfolio's Download CV button continues to work.</p>
+          </div>
+        </div>
+      </section>
+
       <!-- ===== SETTINGS TAB ===== -->
       <section id="tab-settings" class="tab-content hidden">
         <div class="tab-header"><h2>Settings</h2></div>
@@ -194,6 +258,6 @@
     </main>
   </div>
 
-  <script src="admin.js"></script>
+  <script src="admin-script.js"></script>
 </body>
 </html>

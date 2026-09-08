@@ -487,3 +487,17 @@ body {
   .list-card-actions { flex-direction: row; }
   .settings-grid { grid-template-columns: 1fr; }
 }
+
+/* ===== RESUME ===== */
+.resume-card .form-msg {
+  margin-top: 12px;
+  min-height: 1.4em;
+  color: var(--accent);
+}
+#resume-file {
+  padding: 10px;
+}
+#update-resume-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}

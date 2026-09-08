@@ -348,6 +348,131 @@ function clearSkillForm() {
     .forEach(id => document.getElementById(id).value = "");
 }
 
+
+// ================================================================
+//  RESUME
+// ================================================================
+const RESUME_SETTINGS_KEY = "vy_resume_settings";
+
+function loadResumeSettings() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(RESUME_SETTINGS_KEY) || "{}");
+    if (saved.owner) document.getElementById("resume-owner").value = saved.owner;
+    if (saved.repo) document.getElementById("resume-repo").value = saved.repo;
+    if (saved.branch) document.getElementById("resume-branch").value = saved.branch;
+    if (saved.path) document.getElementById("resume-path").value = saved.path;
+  } catch (_) {}
+}
+
+function saveResumeSettings() {
+  localStorage.setItem(RESUME_SETTINGS_KEY, JSON.stringify({
+    owner: document.getElementById("resume-owner").value.trim(),
+    repo: document.getElementById("resume-repo").value.trim(),
+    branch: document.getElementById("resume-branch").value.trim() || "main",
+    path: document.getElementById("resume-path").value.trim() || "Vinay-Resume.pdf"
+  }));
+}
+
+async function updateResumeOnGitHub() {
+  const token = document.getElementById("resume-token").value.trim();
+  const owner = document.getElementById("resume-owner").value.trim();
+  const repo = document.getElementById("resume-repo").value.trim();
+  const branch = document.getElementById("resume-branch").value.trim() || "main";
+  const path = document.getElementById("resume-path").value.trim() || "Vinay-Resume.pdf";
+  const fileInput = document.getElementById("resume-file");
+  const msg = document.getElementById("resume-msg");
+  const button = document.getElementById("update-resume-btn");
+
+  msg.textContent = "";
+
+  if (!token || !owner || !repo || !fileInput.files.length) {
+    msg.textContent = "Please enter the GitHub token, repository details, and select a PDF.";
+    return;
+  }
+
+  const file = fileInput.files[0];
+  if (file.type !== "application/pdf" && !file.name.toLowerCase().endsWith(".pdf")) {
+    msg.textContent = "Please select a PDF file only.";
+    return;
+  }
+
+  if (file.size > 10 * 1024 * 1024) {
+    msg.textContent = "Resume is too large. Please keep the PDF under 10 MB.";
+    return;
+  }
+
+  if (!confirm(`Replace the current ${path} with ${file.name}?`)) return;
+
+  button.disabled = true;
+  button.textContent = "Updating...";
+
+  try {
+    const apiUrl = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${path.split("/").map(encodeURIComponent).join("/")}`;
+    const headers = {
+      "Accept": "application/vnd.github+json",
+      "Authorization": `Bearer ${token}`,
+      "X-GitHub-Api-Version": "2022-11-28"
+    };
+
+    // Get the existing file first so GitHub can overwrite it using its current SHA.
+    const existingRes = await fetch(`${apiUrl}?ref=${encodeURIComponent(branch)}`, { headers });
+    let sha = null;
+
+    if (existingRes.ok) {
+      const existing = await existingRes.json();
+      sha = existing.sha || null;
+    } else if (existingRes.status !== 404) {
+      const error = await existingRes.json().catch(() => ({}));
+      throw new Error(error.message || `Could not access the existing resume (HTTP ${existingRes.status}).`);
+    }
+
+    const base64 = await fileToBase64(file);
+    const payload = {
+      message: sha ? `Update resume: ${file.name}` : `Add resume: ${file.name}`,
+      content: base64,
+      branch
+    };
+    if (sha) payload.sha = sha;
+
+    const updateRes = await fetch(apiUrl, {
+      method: "PUT",
+      headers: { ...headers, "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await updateRes.json().catch(() => ({}));
+    if (!updateRes.ok) {
+      throw new Error(result.message || `GitHub rejected the update (HTTP ${updateRes.status}).`);
+    }
+
+    saveResumeSettings();
+    document.getElementById("resume-token").value = "";
+    fileInput.value = "";
+    msg.textContent = "✓ Resume replaced successfully. GitHub Pages may take a few minutes to publish it.";
+  } catch (error) {
+    console.error("Resume update failed:", error);
+    msg.textContent = `✕ ${error.message}`;
+  } finally {
+    button.disabled = false;
+    button.textContent = "Replace Resume";
+  }
+}
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = String(reader.result || "");
+      resolve(result.split(",")[1] || "");
+    };
+    reader.onerror = () => reject(new Error("Could not read the PDF file."));
+    reader.readAsDataURL(file);
+  });
+}
+
+document.getElementById("update-resume-btn").addEventListener("click", updateResumeOnGitHub);
+loadResumeSettings();
+
 // ================================================================
 //  SETTINGS
 // ================================================================

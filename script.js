@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
       { id:"p1", num:"01", title:"AI Plagiarism Detection",
         desc:"Detects AI-generated and copied content using FastAPI and ML models with high accuracy.",
         tags:["FastAPI","Machine Learning","Python"],
-        github:"https://github.com/Vinay-Yadav25/AI-Plagiarism-Detection-Tool", demo:"" },
+        github:"https://github.com/Vinay-Yadav25/AI-Plagiarism-Detection-Tool", demo:"https://ai-text-detection-tool.onrender.com" },
       { id:"p2", num:"02", title:"AI-Workout App",
         desc:"Personalized AI workout plans with progress tracking and intelligent fitness recommendations.",
         tags:["Flutter","PHP","MySQL","AI"],
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
       { id:"p3", num:"03", title:"AI Helmet Detection",
         desc:"Real-time YOLOv8 safety detection system with Streamlit dashboard, alerts, and metrics.",
         tags:["YOLOv8","Computer Vision","Streamlit"],
-        github:"https://github.com/Vinay-Yadav25/AI-Based-Helmet-Detection", demo:"" }
+        github:"https://github.com/Vinay-Yadav25/AI-Based-Helmet-Detection", demo:"https://huggingface.co/spaces/Vinay-yadav-25/HelmetDetection-for-ConstructionSites" }
     ],
     skills: [
       { id:"s1", icon:"🖥️", name:"Frontend", tags:["HTML","CSS","JavaScript"], logos:{"HTML":"assets/html.png","CSS":"assets/css.png","JavaScript":"assets/JavaScript-logo.png"} },
