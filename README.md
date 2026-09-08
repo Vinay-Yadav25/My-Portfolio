@@ -2,7 +2,7 @@
 
 > AI/ML Engineer & Web Developer · Final-year B.Tech CSE (AIML) · JNTUH Hyderabad
 
-[![Live Site](https://img.shields.io/badge/Live%20Site-Visit-00e87a?style=for-the-badge&logo=github)](https://vinay-yadav25.github.io/Vinay-s-Portfolio/)
+[![Live Site](https://img.shields.io/badge/Live%20Site-Visit-00e87a?style=for-the-badge&logo=github)](https://vinay-yadav25.github.io/My-Portfolio/)
 [![GitHub](https://img.shields.io/badge/GitHub-Vinay--Yadav25-181717?style=for-the-badge&logo=github)](https://github.com/Vinay-Yadav25)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-vinay--yadav--25vy-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/vinay-yadav-25vy/)
 
